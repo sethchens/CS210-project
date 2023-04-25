@@ -1,9 +1,18 @@
 using System;
+using System.Collections.Generic;
 
-class Program
+namespace learning02
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.WriteLine("Hello Learning02 World!");
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello Learning02 World!");
+            List<int> myList = new List<int>();
+            myList.Add(121);    //By value
+            myList.Add(2021);
+            myList.Remove(0);   // By index
+            
+        }
     }
 }
