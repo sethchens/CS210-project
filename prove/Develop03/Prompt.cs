@@ -4,17 +4,17 @@ namespace Develop03 {
     public class Prompt {
         public string _prompt;
         public ConsoleKey enterKey = ConsoleKey.Enter;
+        Scriptures scriptures = new Scriptures();
 
         public void hideOrQuit() {
-            ConsoleKeyInfo keyInfo = Console.ReadKey();
             if (_prompt == "quit") {
-                Environment.Exit(0);
+                return;
             }
             else if (_prompt == ""){
-                Scriptures.HideWord(Scriptures.ReturnScriptures());
+                Scriptures.HideWord(scriptures.ReturnModifiedScriptures());
             }
             else {
-                Console.WriteLine("Please type either 'quit' oe press Enter.");
+                Console.WriteLine("Please type either 'quit' or press Enter.");
             }
         }
     }
