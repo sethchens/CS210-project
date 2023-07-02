@@ -2,12 +2,13 @@ using System;
 
 namespace Develop05 {
     public abstract class Goal<T> {
-        private int _userScore;
+        private int _userScore = 0;
         protected Dictionary<(string, int), T> _goalList;
 
         public Dictionary<(string, int), T> GetGoalList() {
             return _goalList;
         }
+        public abstract bool CheckGoalList(string goalName, int goalPoint);
         public int GetUserScore() {
             return _userScore;
         }
@@ -16,7 +17,7 @@ namespace Develop05 {
         }
 
         public abstract void CreateNewGoal(string goalName, int goalPoint);
-        public abstract Dictionary<(string, int), T> DisplayGoal();
+        public abstract void DisplayGoal();
         public abstract int RecordEvent(string goalName, int goalPoint);
         public abstract bool IsComplete(string goalName, int goalPoint);
         public abstract int DisplayUserScore();

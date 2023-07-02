@@ -10,9 +10,19 @@ namespace Develop05
             // but the number of goal is 5
             _goalList.Add((goalName, goalPoint), 0);
         }
-        public override Dictionary<(string, int), int> DisplayGoal()
+        public override void DisplayGoal()
         {
-            return _goalList;                
+            if (_goalList.Count == 0)
+            {
+                Console.WriteLine("There is nothing in the goal list currently");
+            }
+            else
+            {
+                foreach (KeyValuePair<(string, int), int> item in _goalList)
+                {
+                    Console.WriteLine(item.Key);
+                }
+            }
 
         }
         public override int RecordEvent(string goalName, int goalPoint)
@@ -46,6 +56,18 @@ namespace Develop05
         public override int DisplayUserScore()
         {
             return base.GetUserScore();
+        }
+        public override bool CheckGoalList(string goalName, int goalPoint)
+        {
+            if ((_goalList.ContainsKey((goalName, goalPoint))))
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("The goal is not contains in the current goal list");
+                return false;
+            }
         }
         public CheckListGoal() : base()
         {
